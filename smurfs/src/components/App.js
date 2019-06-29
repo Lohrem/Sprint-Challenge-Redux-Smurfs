@@ -18,7 +18,7 @@ class App extends Component {
   }
   inputChange = e => {
     e.preventDefault()
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ ...this.state, smurf: {...this.state.smurf, [e.target.name]: e.target.value} })
   }
   newSmurf = e => {
     e.preventDefault()
@@ -58,5 +58,3 @@ const mapStateToProps = state => {
   return { smurfs: state.smurfs }
 }
 export default connect(mapStateToProps, { addSmurf })(App);
-
-// export default App;
